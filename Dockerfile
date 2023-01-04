@@ -30,11 +30,12 @@ RUN python3.7 setup.py develop --user
 WORKDIR /usr/src/easymocap/scripts/postprocess
 RUN wget https://www.denubila.com.br/downloads/convert2bvh-fixed.py
 
-WORKDIR /usr/src/blender
+WORKDIR /
 RUN wget https://www.denubila.com.br/downloads/blender.zip
 RUN unzip -n blender.zip
 RUN rm blender.zip
 
-ENV BLENDER_PATH=/usr/src/blender/blender
+ENV BLENDER_PATH=/blender
+RUN chmod -R 777 /blender
 
 WORKDIR /usr/src/easymocap
